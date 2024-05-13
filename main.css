@@ -11,8 +11,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     background: #333;
+
+    flex-direction: column;
 }
 
 .container{
@@ -94,7 +96,7 @@ body {
 }
 
 .container .wheel .number span::after {
-    content: '€';
+    content: '';
     position: absolute;
     font-size: 0.75em;
     font-weight: 500;
@@ -148,6 +150,21 @@ body {
 .message_item,
 .message_content {
     animation: fadeIn 0.5s ease forwards;
+}
+
+.text{
+    width: 100%;
+    position: absolute;
+    top: 18vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes fadeOut {

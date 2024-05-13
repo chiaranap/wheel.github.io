@@ -2,35 +2,35 @@ const data = {
     "number_of_items": 8,
     "items": [
         {
-            "value": 100,
+            "value": "10%",
             "color": "#db7093"
         },
         {
-            "value": 1,
+            "value": "5€",
             "color": "#20b2aa"
         },
         {
-            "value": 50,
+            "value": "15%",
             "color": "#d63e92"
         },
         {
-            "value": 0,
+            "value": "8€",
             "color": "#daa520"
         },
         {
-            "value": 1000,
+            "value": "25%",
             "color": "#ff340f"
         },
         {
-            "value": 10,
+            "value": "10€",
             "color": "#ff7f50"
         },
         {
-            "value": 5,
+            "value": "30%",
             "color": "#3cb371"
         },
         {
-            "value": 20,
+            "value": "20€",
             "color": "#4169e1"
         }
     ]
@@ -39,6 +39,7 @@ const data = {
 let wheel = document.querySelector('.wheel')
 let spinBtn = document.querySelector('.spinBtn')
 let container = document.querySelector('.container')
+let init_text = document.querySelector('.text')
 let value = Math.ceil(Math.random() * 3600)
 
 let number_of_items = data.number_of_items
@@ -125,6 +126,10 @@ function rotationComplete(event) {
 }
 
 function makeMessage(extractedValue){
+    if(container){
+        container.classList.add('hidden');
+    }
+    init_text.classList.add('hidden')
     let color = getColorFromValue(extractedValue)
     console.log(color)
     let messageContainer = document.querySelector('.message_container');
@@ -138,7 +143,7 @@ function makeMessage(extractedValue){
     message.style.background = `${color}`
 
     let spanElement = document.createElement('span');
-    spanElement.textContent = "" + extractedValue +"€";
+    spanElement.textContent = "" + extractedValue;
 
     message.appendChild(spanElement);
 
@@ -146,7 +151,7 @@ function makeMessage(extractedValue){
 
     let messageContent = document.createElement('div');
     messageContent.classList.add('message_content');
-    messageContent.textContent = "Take a screenshot and present it in store";
+    messageContent.textContent = "Fai uno screenshot e presentalo in negozio";
 
     messageContainer.appendChild(messageItem);
     messageContainer.appendChild(messageContent);
